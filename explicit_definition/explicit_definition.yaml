@@ -1,0 +1,35 @@
+# --- EXPLICIT DEFINITION ---
+explicit_definition_proposition:
+  syntax: 'domain_definition | temporal_concept_definition'
+  target: explicit_definition_ita
+
+# 1. Domain Definition
+domain_definition:
+  syntax: '[articles] subject_name ((("viene" | "è") ("identificato" | "identificata") "da") key_name)? ", e"? ("ha" attribute_name (("," | ", e") attribute_name)*)?'
+  target: explicit_definition_ita
+
+attribute_name:
+  syntax: '[articles] string string?'
+  target: explicit_definition_ita
+
+key_name:
+  syntax: 'articles string [string]'
+  concat: ", e da"
+  target: explicit_definition_ita
+
+subject_name:
+  syntax: 'string'
+  target: explicit_definition_ita
+
+# 2. Temporal Concept Definition
+temporal_concept_definition:
+  syntax: 'articles subject_name "è un concetto temporale espresso in" temporal_type "che va da" temporal_range "a" temporal_range ("con una lunghezza di" number temporal_type)?'
+  target: explicit_definition_ita
+
+temporal_type:
+  syntax: '("minuti" | "ore" | "steps" | "giorni" | "minuto" | "giorno" | "step" | "ora")'
+  target: explicit_definition_ita
+
+temporal_range:
+  syntax: '(number | number ":" number | number "/" number "/" number)'
+  target: explicit_definition_ita

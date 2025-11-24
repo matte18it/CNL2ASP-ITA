@@ -1,0 +1,36 @@
+# --- IMPLICIT DEFINITION ---
+implicit_definition_proposition:
+  syntax: 'constant_definition_clause | compounded_clause | enumerative_definition_clause'
+  target: implicit_definition_ita
+
+# 1. Constant Definition
+constant_definition_clause:
+  syntax: 'string "è una costante" ("uguale a" (string | number))?'
+  target: implicit_definition_ita
+
+# 2. Compounded Definition
+compounded_clause:
+  syntax: 'articles string ("va da" (string | number) "a" (string | number) | "è uno tra" compounded_list ("e ha" compounded_attributes ", "?)*)'
+  target: implicit_definition_ita
+
+compounded_attributes:
+  syntax: 'string "uguale a rispettivamente" compounded_list'
+  target: implicit_definition_ita
+
+compounded_list:
+  syntax: '(string | number)'
+  concat: ","
+  target: implicit_definition_ita
+
+# 3. Enumerative Definition Clause
+enumerative_definition_clause:
+  syntax: 'property_assignment | conditional_enumerative'
+  target: implicit_definition_ita
+
+property_assignment:
+  syntax: '(string | number) "è" articles string [attribute]'
+  target: implicit_definition_ita
+
+conditional_enumerative:
+  syntax: 'entity "è"? verb [entity] ("e" entity)* ","? terminal_clause'
+  target: implicit_definition_ita

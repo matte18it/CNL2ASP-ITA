@@ -1,0 +1,40 @@
+# --- OPERATIONS ---
+operation:
+  - name: math
+    operators:
+      somma: '+'
+      differenza: '-'
+      moltiplicazione: '*'
+      divisione: '/'
+    syntax: '("la")? math_operator "tra" math_operand "e" math_operand'
+    target: operations_ita
+
+  - name: comparison
+    operators:
+      lo stesso: '='
+      uguale: '='
+      diverso: '!='
+      più: '>'
+      maggiore: '>'
+      minore: '<'
+      maggiore o uguale: '>='
+      minore o uguale: '<='
+      almeno: '>='
+      al massimo: '<='
+      non dopo: '<='
+      prima: '<'
+      dopo: '>'
+    syntax: 'comparison_value ("è" | "sia")? comparison_operator preposition? comparison_value'
+    target: operations_ita
+
+comparison_value:
+  syntax: '(string | number | math | aggregate_clause)'
+  target: operations_ita
+
+math_operand:
+  syntax: 'number | string'
+  target: operations_ita
+
+between_operator:
+  syntax: '("compreso fra" | "compreso tra" | "tra" | "fra") (string | number | math) "e" (string | number | math)'
+  target: operations_ita

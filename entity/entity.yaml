@@ -1,0 +1,37 @@
+# --- ENTITY ---
+entity:
+  syntax: '[articles] entity_name [attribute]'
+  target: entity_ita
+
+entity_name:
+  syntax: 'string [/[A-Z][0-9]*|[0-9]+/]'
+  target: entity_ita
+
+attribute:
+  syntax: '"con" string [equal_to] [value_attribute] [attribute_comparison]'
+  concat: ","
+  target: entity_ita
+
+equal_to:
+  syntax: '("uguale a" | "pari a" | "valente a")'
+  target: entity_ita
+
+value_attribute:
+  syntax: '(string | math_expression | number)'
+  target: entity_ita
+
+math_expression:
+  syntax: 'string math_symbol number'
+  target: entity_ita
+
+math_symbol:
+  syntax: '("+" | "-" | "*" | "/")'
+  target: entity_ita
+
+attribute_comparison:
+  syntax: '(comparison | between_operator)'
+  target: entity_ita
+
+list_of_entities:
+  syntax: 'entity ("," ("e" | "o")? entity)*'
+  target: entity_ita

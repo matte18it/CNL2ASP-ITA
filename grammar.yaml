@@ -1,0 +1,76 @@
+import:
+  - from: weak_constraint
+    rules: '*'
+    source: [weak_constraint_ita]
+    target: [asp_ita]
+  - from: strong_constraint
+    rules: '*'
+    source: [strong_constraint_ita]
+    target: [asp_ita]
+  - from: explicit_definition
+    rules: '*'
+    source: [explicit_definition_ita]
+    target: [asp_ita]
+  - from: implicit_definition
+    rules: '*'
+    source: [implicit_definition_ita]
+    target: [asp_ita]
+  - from: standard_proposition
+    rules: '*'
+    source: [standard_proposition_ita]
+    target: [asp_ita]
+  - from: simple_definition
+    rules: '*'
+    source: [simple_definition_ita]
+    target: [asp_ita]
+  - from: operations
+    rules: '*'
+    source: [operations_ita]
+    target: [asp_ita]
+  - from: entity
+    rules: '*'
+    source: [entity_ita]
+    target: [asp_ita]
+  - from: terminal_clause
+    rules: '*'
+    source: [terminal_clause_ita]
+    target: [asp_ita]
+  - from: aggregate_clause
+    rules: '*'
+    source: [aggregate_clause_ita]
+    target: [asp_ita]
+  - from: cardinality
+    rules: '*'
+    source: [cardinality_ita]
+    target: [asp_ita]
+
+start:
+  syntax: (proposition ".")+
+  target:
+    - asp_ita
+
+proposition:
+  - name: weak_constraint
+  - name: strong_constraint
+  - name: explicit_definition_proposition
+  - name: implicit_definition_proposition
+  - name: standard_proposition
+  - name: simple_definition
+
+articles:
+  syntax: '("Un " | "Una " | "Uno " | "un " | "una " | "uno " | "Il " | "Lo " | "La " | "I " | "Gli " | "Le " | "il " | "lo " | "la " | "i " | "gli " | "le ")'
+
+preposition:
+  syntax: '("di " | "a " | "da " | "della " | "alla " | "in " | "per " | "con " | "nel " | "nella " | "al " | "allo " | "degli " | "dei " | "delle " | "sul " | "sulla " | "sui " | "sulle ")'
+
+auxiliary_verb:
+  syntax: '("fa " | "è " | "ha " | "fare " | "essere " | "avere " | "sono ")'
+
+verb:
+  syntax: 'string [attribute] [preposition]'
+
+foreach_clause:
+  syntax: '"per ogni" entity'
+
+negation:
+  syntax: '"non"'

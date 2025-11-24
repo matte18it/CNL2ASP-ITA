@@ -1,0 +1,14 @@
+# --- CARDINALITY ---
+cardinality:
+  - name: exactly
+    syntax: '"esattamente" (string | number)'
+    target: cardinality_ita
+  - name: at_most
+    syntax: '"al massimo" (string | number)'
+    target: cardinality_ita
+  - name: at_least
+    syntax: '"almeno" (string | number)'
+    target: cardinality_ita
+  - name: between
+    syntax: '("tra" | "fra") (string | number) "e" (string | number)'
+    target: cardinality_ita

@@ -1,0 +1,9 @@
+Un nodo va da 1 a 3.
+Un colore è uno tra rosso, verde, blu.
+
+Nodo 1 è connesso a nodo X, dove X è uno tra 2, 3.
+Nodo 2 è connesso a nodo X, dove X è uno tra 1, 3.
+Nodo 3 è connesso a nodo X, dove X è uno tra 1, 2.
+Ogni nodo può essere assegnato a esattamente 1 colore.
+
+Si consente che quando un nodo con id X è connesso a un nodo con id Y allora un nodo con id X non è assegnato a un colore e anche un nodo con id Y non è assegnato a un colore.

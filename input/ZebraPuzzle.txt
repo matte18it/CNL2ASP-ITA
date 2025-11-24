@@ -1,0 +1,75 @@
+Una nazionalita è uno tra inglese, giapponese, norvegese, russo, spagnolo.
+Una sigaretta è uno tra luckystrike, winston, chesterfields, kools, parliaments.
+Un animale è uno tra cavallo, lumaca, zebra, volpe, cane.
+Un colore è uno tra rosso, verde, giallo, blu, avorio.
+Una bevanda è uno tra acqua, latte, succo, te, caffe.
+Una persona ha una nazionalita.
+Un vicino ha una primaPersona, e una secondaPersona.
+Una casa ha un colore.
+Una abitazione ha una persona, e un colore. // live
+Una locazione ha una casa, e un valore. // position
+Un padrone ha una persona, e un animale.
+Una consumazione ha una persona, una bevanda.
+Un fumatore ha una persona, e una sigaretta.
+
+Ogni volta che esiste una nazionalita N, allora possiamo avere esattamente 1 persona con nazionalita N.
+Ogni volta che esiste un colore C, allora possiamo avere esattamente 1 casa con colore C.
+
+Ogni persona con nazionalita N può avere una abitazione con nazionalita N, con colore uguale a rosso, o una abitazione con nazionalita N, con colore uguale a verde, o una abitazione con nazionalita N, con colore uguale a giallo, o una abitazione con nazionalita N, con colore uguale a blu, o una abitazione con nazionalita N, con colore uguale a avorio.
+Ogni casa con colore C può avere una locazione con colore C, con valore uguale a 1, o una locazione con colore C, con valore uguale a 2, o una locazione con colore C, con valore uguale a 3, o una locazione con colore C, con valore uguale a 4, o una locazione con colore C, con valore uguale a 5.
+Ogni persona con nazionalita N può essere un padrone con nazionalita N, con animale uguale a cavallo, o un padrone con nazionalita N, con animale uguale a lumaca, o un padrone con nazionalita N, con animale uguale a zebra, o un padrone con nazionalita N, con animale uguale a volpe, o un padrone con nazionalita N, con animale uguale a cane.
+Ogni persona con nazionalita N può avere una consumazione con nazionalita N, con bevanda uguale a acqua, o una consumazione con nazionalita N, con bevanda uguale a latte, o una consumazione con nazionalita N, con bevanda uguale a succo, o una consumazione con nazionalita N, con bevanda uguale a te, o una consumazione con nazionalita N, con bevanda uguale a caffe.
+Ogni persona con nazionalita N può essere un fumatore con nazionalita N, con sigaretta uguale a luckystrike, o un fumatore con nazionalita N, con sigaretta uguale a winston, o un fumatore con nazionalita N, con sigaretta uguale a chesterfields, o un fumatore con nazionalita N, con sigaretta uguale a kools, o un fumatore con nazionalita N, con sigaretta uguale a parliaments.
+
+// Vincoli per impedire le uguaglianze
+Non si consente che P sia diverso da P1, ogni volta che esiste una abitazione con persona P, con colore C, ogni volta che esiste una abitazione con persona P1, con colore C.
+Non si consente che C sia diverso da C1, ogni volta che esiste una locazione con casa C, con valore V, ogni volta che esiste una locazione con casa C1, con valore V.
+Non si consente che P sia diverso da P1, ogni volta che esiste un padrone con persona P, con animale A, ogni volta che esiste un padrone con persona P1, con animale A.
+Non si consente che P sia diverso da P1, ogni volta che esiste una consumazione con persona P, con bevanda B, ogni volta che esiste una consumazione con persona P1, con bevanda B.
+Non si consente che P sia diverso da P1, ogni volta che esiste un fumatore con persona P, con sigaretta S, ogni volta che esiste un fumatore con persona P1, con sigaretta S.
+
+// Vincoli che indicano la vicinanza
+Ogni volta che esiste una abitazione con persona P1, con colore C1, ogni volta che esiste una locazione con casa C1, con valore N1, ogni volta che esiste una abitazione con persona P2, con colore C2, ogni volta che esiste una locazione con casa C2, con valore N2 allora dobbiamo avere un vicino con primaPersona P1, con secondaPersona P2, dove N2 è uguale a N1+1.
+Ogni volta che esiste una abitazione con persona P1, con colore C1, ogni volta che esiste una locazione con casa C1, con valore N1, ogni volta che esiste una abitazione con persona P2, con colore C2, ogni volta che esiste una locazione con casa C2, con valore N2 allora dobbiamo avere un vicino con primaPersona P1, con secondaPersona P2, dove N2 è uguale a N1-1.
+
+// Punto 1: l'inglese vive nella casa ROSSA
+Esiste una abitazione con persona uguale a inglese, con colore uguale a rosso.
+
+// Punto 2: il cane è dello spagnolo
+Esiste un padrone con persona uguale a spagnolo, con animale uguale a cane.
+
+// Punto 3: il norvegese vive nella prima casa a sinistra
+Si consente che esiste una locazione con casa C, con valore V, dove V è uguale a 1 ogni volta che esiste una abitazione con persona P, con colore C dove P è uguale a norvegese.
+
+// Punto 4: kools sono fumati nella casa gialla
+Si consente che esiste un fumatore con persona P, con sigaretta S, dove S è uguale a kools ogni volta che esiste una abitazione con persona P, con colore C dove C è uguale a giallo.
+
+// Punto 5: l'uomo che fuma Chesterfields vive in casa accanto all'uomo con la volpe
+Si consente che esiste un vicino con primaPersona P1, con secondaPersona P2, ogni volta che esiste un fumatore con persona P, con sigaretta R ogni volta che esiste una abitazione con persona P, con colore C ogni volta che esiste una locazione con casa C, con valore T ogni volta che esiste una abitazione con persona P1, con colore C1 ogni volta che esiste una locazione con casa C1, con valore T1 ogni volta che esiste un padrone con persona P1, con animale A dove R è uguale a chesterfields e A è uguale a volpe.
+
+// Punto 6: il norvegese vive vicino alla casa blu
+Si consente che esiste un vicino con primaPersona P1, con secondaPersona P2, ogni volta che esiste una abitazione con persona P1, con colore C1 ogni volta che esiste una locazione con casa C1, con valore V1 ogni volta che esiste una abitazione con persona P2, con colore C2 ogni volta che esiste una locazione con casa C2, con valore V2 dove P1 è uguale a norvegese e C2 è uguale a blu.
+
+// Punto 7: il fumatore Winston possiede lumache
+Si consente che esiste un padrone con persona P, con animale A, ogni volta che esiste un fumatore con persona P, con sigaretta S dove S è uguale a winston e A è uguale a lumaca.
+
+// Punto 8: il fumatore LuckyStrike beve succo d'arancia
+Si consente che esiste una consumazione con persona P, con bevanda B, ogni volta che esiste un fumatore con persona P, con sigaretta S dove S è uguale a luckystrike e B è uguale a succo.
+
+// Punto 9: il russo beve tè
+Esiste una consumazione con persona uguale a russo, con bevanda uguale a te.
+
+// Punto 10: il giapponese fuma Parliaments.
+Esiste un fumatore con persona uguale a giapponese, con sigaretta uguale a parliaments.
+
+// Punto 11: kools sono fumati nella casa accanto alla casa dove il cavallo è tenuto
+Si consente che esiste un vicino con primaPersona P, con secondaPersona P1, ogni volta che esiste un fumatore con persona P, con sigaretta C1 ogni volta che esiste una abitazione con persona P, con colore C ogni volta che esiste una locazione con casa C, con valore T ogni volta che esiste una abitazione con persona P1, con colore C1 ogni volta che esiste un padrone con persona P1, con animale A ogni volta che esiste una locazione con casa C1, con valore T1 dove C è uguale a kools e A è uguale a cavallo.
+
+// Punto 12: il caffè è bevuto nella casa verde
+Si consente che esiste una consumazione con persona P, con bevanda B, ogni volta che esiste una abitazione con persona P, con colore C dove C è uguale a verde e B è uguale a caffe.
+
+// Punto 13: la casa verde è immediatamente a destra della casa di AVORIO
+Non si consente che T sia diverso da T1+1, ogni volta che esiste una abitazione con persona P, con colore C ogni volta che esiste una locazione con casa C, con valore T ogni volta che esiste una abitazione con persona P1, con colore C1 ogni volta che esiste una locazione con casa C1, con valore T1 dove C è uguale a verde e C1 è uguale a avorio.
+
+// Punto 14: il latte è bevuto nella casa di mezzo
+Non si consente che T sia diverso da 3, ogni volta che esiste una abitazione con persona P, con colore C ogni volta che esiste una locazione con casa C, con valore T ogni volta che esiste una consumazione con persona P, con bevanda B dove B è uguale a latte.

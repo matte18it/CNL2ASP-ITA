@@ -1,0 +1,32 @@
+# --- WEAK CONSTRAINT ---
+weak_constraint:
+  syntax: '("Si preferisce" | "È preferibile") optimization_statement? ","? "con" priority_level ","? "che" (weak_constraint_comparison | weak_constraint_aggregate_clause | weak_constraint_simple_definition | weak_constraint_whenever_clause) [", "? string? ("è" | "sia") weak_constraint_operator] [", " terminal_clause]'
+  target: weak_constraint_ita
+
+optimization_statement:
+  syntax: '("il meno possibile" | "quanto più possibile")'
+  target: weak_constraint_ita
+
+priority_level:
+  syntax: '("bassa priorità" | "media priorità" | "alta priorità")'
+  target: weak_constraint_ita
+
+weak_constraint_operator:
+  syntax: '("minimizzato" | "massimizzato")'
+  target: weak_constraint_ita
+
+weak_constraint_comparison:
+  syntax: 'comparison'
+  target: weak_constraint_ita
+
+weak_constraint_aggregate_clause:
+  syntax: 'aggregate_clause'
+  target: weak_constraint_ita
+
+weak_constraint_simple_definition:
+  syntax: 'simple_definition'
+  target: weak_constraint_ita
+
+weak_constraint_whenever_clause:
+  syntax: '(whenever_clause)+'
+  target: weak_constraint_ita

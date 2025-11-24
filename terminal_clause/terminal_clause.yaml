@@ -1,0 +1,29 @@
+# --- TERMINAL CLAUSE ---
+terminal_clause:
+  syntax: '(whenever_clause | "dove" where_clause | when_clause | such_that_clause)+'
+  target: terminal_clause_ita
+
+where_clause:
+  syntax: '((comparison | string "è" between_operator) ("e" (comparison | string "è" between_operator))* | variable where_type string_list | variable where_type string_list | where_clause "e" where_clause)'
+  target: terminal_clause_ita
+
+where_type:
+  syntax: '("è uno di" | "è uno dei" | "fa parte di" | "rientra tra" | "è uno tra" | "è rispettivamente uno dei" | "è rispettivamente uno tra" | "fa rispettivamente parte di uno dei" | "fa rispettivamente parte di uno tra" | "corrisponde rispettivamente a uno dei" | "corrisponde rispettivamente a uno tra" | "è rispettivamente")'
+  target: terminal_clause_ita
+
+variable:
+  syntax: 'string'
+  target: terminal_clause_ita
+
+string_list:
+  syntax: 'string | number'
+  concat: ","
+  target: terminal_clause_ita
+
+when_clause:
+  syntax: '"quando" simple_clause_list'
+  target: terminal_clause_ita
+
+simple_clause_list:
+  syntax: 'entity [negation] [auxiliary_verb] verb list_of_entities'
+  target: terminal_clause_ita

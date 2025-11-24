@@ -1,0 +1,24 @@
+# --- AGGREGATE CLAUSE ---
+aggregate_clause:
+  syntax: 'simple_aggregate | qualified_aggregate | relative_aggregate | locative_aggregate'
+  target: aggregate_clause_ita
+
+simple_aggregate:
+  syntax: 'aggregate_operator preposition entity'
+  target: aggregate_clause_ita
+
+qualified_aggregate:
+  syntax: 'aggregate_operator [preposition] string preposition entity'
+  target: aggregate_clause_ita
+
+relative_aggregate:
+  syntax: 'aggregate_operator [preposition] string "che" entity [auxiliary_verb] [list_of_entities]'
+  target: aggregate_clause_ita
+
+locative_aggregate:
+  syntax: 'aggregate_operator [preposition] string "dove" entity [auxiliary_verb] entity [list_of_entities]'
+  target: aggregate_clause_ita
+
+aggregate_operator:
+  syntax: '("la somma" | "il totale" | "il più alto" | "il più basso" | "il numero")'
+  target: aggregate_clause_ita

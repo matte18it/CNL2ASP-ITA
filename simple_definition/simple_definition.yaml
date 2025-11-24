@@ -1,0 +1,4 @@
+# --- SIMPLE DEFINITION ---
+simple_definition:
+  syntax: 'entity [negation] [auxiliary_verb] verb [list_of_entities]'
+  target: simple_definition_ita

@@ -1,0 +1,21 @@
+Una riga va da 1 a 4.
+Una colonna va da 1 a 4.
+Una cella ha una riga, una colonna.
+Un riempimento ha una cellaRiga, una cellaColonna, e un valore.
+Una operazione ha una cellaRigaIniziale, una cellaRigaFinale, una cellaColonnaIniziale, e una cellaColonnaFinale.
+
+Esiste un riempimento con cellaRiga uguale a 1, con cellaColonna uguale a 2, con valore uguale a 3.
+Esiste un riempimento con cellaRiga uguale a 1, con cellaColonna uguale a 3, con valore uguale a 2.
+Esiste un riempimento con cellaRiga uguale a 2, con cellaColonna uguale a 1, con valore uguale a 2.
+Esiste un riempimento con cellaRiga uguale a 2, con cellaColonna uguale a 2, con valore uguale a 4.
+
+Esiste una operazione con cellaRigaIniziale uguale a 2, con cellaRigaFinale uguale a 3, con cellaColonnaIniziale uguale a 2, con cellaColonnaFinale uguale a 4.
+Esiste una operazione con cellaRigaIniziale uguale a 4, con cellaRigaFinale uguale a 2, con cellaColonnaIniziale uguale a 3, con cellaColonnaFinale uguale a 2.
+
+Ogni volta che esiste una riga R, ogni volta che esiste una colonna C allora dobbiamo avere una cella con riga R, con colonna C.
+Ogni cella con riga R, con colonna C può avere un riempimento con cellaRiga R, con cellaColonna C, con valore uguale a 1, o riempimento con cellaRiga R, con cellaColonna C, con valore uguale a 2, o un riempimento con cellaRiga R, con cellaColonna C, con valore uguale a 3, o un riempimento con cellaRiga R, con cellaColonna C, con valore uguale a 4.
+
+Non si consente che Y1 sia diverso da Y2, ogni volta che esiste un riempimento con cellaRiga X, con cellaColonna Y1, con valore V ogni volta che esiste un riempimento con cellaRiga X, con cellaColonna Y2, con valore V.
+Non si consente che X1 sia diverso da X2, ogni volta che esiste un riempimento con cellaRiga X1, con cellaColonna Y, con valore V ogni volta che esiste un riempimento con cellaRiga X2, con cellaColonna Y, con valore V.
+
+Non si consente che V sia minore di V1, ogni volta che esiste un riempimento con cellaRiga X, con cellaColonna Y, con valore V, ogni volta che esiste un riempimento con cellaRiga X1, con cellaColonna Y1, con valore V1, ogni volta che esiste una operazione con cellaRigaIniziale X, con cellaRigaFinale Y, con cellaColonnaIniziale X1, con cellaColonnaFinale Y1.

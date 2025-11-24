@@ -1,0 +1,51 @@
+# --- STANDARD PROPOSITION ---
+standard_proposition:
+  syntax: 'quantified_choice_proposition | quantified_assignment_proposition | fact_proposition | whenever_then_clause_choice | whenever_then_clause_assignment'
+  target: standard_proposition_ita
+
+# 1. Quantified Choice Proposition:
+quantified_choice_proposition:
+  syntax: '("Ogni" | "Ciascuno" | "ogni" | "ciascuno") entity "può" [auxiliary_verb] [verb] [cardinality] [list_of_entities] [foreach_clause]'
+  target: standard_proposition_ita
+
+quantified_assignment_proposition:
+  syntax: '("Ogni" | "Ciascuno" | "ogni" | "ciascuno") entity "deve" [auxiliary_verb] [list_of_entities] [foreach_clause]'
+  target: standard_proposition_ita
+
+# 2. Fact Proposition:
+fact_proposition:
+  syntax: '("Esiste" | "esiste") entity'
+  target: standard_proposition_ita
+
+# 3. Whenever Proposition:
+whenever_then_clause_choice:
+  syntax: 'whenever_clauses "allora" then_subject_choice [auxiliary_verb] [verb] [cardinality] [list_of_entities] [such_that_clause]'
+  target: standard_proposition_ita
+
+whenever_then_clause_assignment:
+  syntax: 'whenever_clauses "allora" then_subject_assignment [auxiliary_verb] entity'
+  target: standard_proposition_ita
+
+then_subject_choice:
+  syntax: '(string)? ("può" | "possiamo")'
+  target: standard_proposition_ita
+
+then_subject_assignment:
+  syntax: '(string)? ("deve" | "dobbiamo")'
+  target: standard_proposition_ita
+
+whenever_clauses:
+  syntax: '(whenever_clause ","?)+'
+  target: standard_proposition_ita
+
+whenever_clause:
+  syntax: '("Ogni volta che" | ", "? "ogni volta che") existence_condition'
+  target: standard_proposition_ita
+
+such_that_clause:
+  syntax: '"tale che" (existence_condition ","?)+'
+  target: standard_proposition_ita
+
+existence_condition:
+  syntax: '[negation] "esiste" entity'
+  target: standard_proposition_ita

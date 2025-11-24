@@ -1,0 +1,94 @@
+# --- STRONG CONSTRAINT ---
+strong_constraint:
+  syntax: 'positive_constraint | negative_constraint'
+  target: strong_constraint_ita
+
+simple_definition_sequence:
+  syntax: 'simple_definition ("e anche" simple_definition)*'
+  target: strong_constraint_ita
+
+when_then_clause:
+  syntax: '"quando" simple_definition "allora" simple_definition_sequence'
+  target: strong_constraint_ita
+
+# 1. Positive Constraint
+positive_constraint:
+  syntax: '"Si consente che" positive_constraint_body [", " terminal_clause]'
+  target: strong_constraint_ita
+
+positive_constraint_body:
+  syntax: 'positive_constraint_comparison | positive_constraint_fact_proposition | positive_constraint_whenever_then_clause_choice | positive_constraint_whenever_then_clause_assignment | positive_constraint_quantified_choice_proposition | positive_constraint_quantified_assignment_proposition | positive_constraint_when_then_clause | positive_constraint_simple_definition_sequence'
+  target: strong_constraint_ita
+
+positive_constraint_comparison:
+  syntax: 'comparison'
+  target: strong_constraint_ita
+
+positive_constraint_fact_proposition:
+  syntax: 'fact_proposition'
+  target: strong_constraint_ita
+
+positive_constraint_whenever_then_clause_choice:
+  syntax: 'whenever_then_clause_choice'
+  target: strong_constraint_ita
+
+positive_constraint_whenever_then_clause_assignment:
+  syntax: 'whenever_then_clause_assignment'
+  target: strong_constraint_ita
+
+positive_constraint_quantified_choice_proposition:
+  syntax: 'quantified_choice_proposition'
+  target: strong_constraint_ita
+
+positive_constraint_quantified_assignment_proposition:
+  syntax: 'quantified_assignment_proposition'
+  target: strong_constraint_ita
+
+positive_constraint_when_then_clause:
+  syntax: 'when_then_clause'
+  target: strong_constraint_ita
+
+positive_constraint_simple_definition_sequence:
+  syntax: 'simple_definition_sequence'
+  target: strong_constraint_ita
+
+# 2. Negative Constraint
+negative_constraint:
+  syntax: '("Non si consente che" | "Non è possibile che") negative_constraint_body [", " terminal_clause]'
+  target: strong_constraint_ita
+
+negative_constraint_body:
+  syntax: 'negative_constraint_comparison | negative_constraint_fact_proposition | negative_constraint_whenever_then_clause_choice | negative_constraint_whenever_then_clause_assignment | negative_constraint_quantified_choice_proposition | negative_constraint_quantified_assignment_proposition | negative_constraint_when_then_clause | negative_constraint_simple_definition_sequence'
+  target: strong_constraint_ita
+
+negative_constraint_comparison:
+  syntax: 'comparison'
+  target: strong_constraint_ita
+
+negative_constraint_fact_proposition:
+  syntax: 'fact_proposition'
+  target: strong_constraint_ita
+
+negative_constraint_whenever_then_clause_choice:
+  syntax: 'whenever_then_clause_choice'
+  target: strong_constraint_ita
+
+negative_constraint_whenever_then_clause_assignment:
+  syntax: 'whenever_then_clause_assignment'
+  target: strong_constraint_ita
+
+negative_constraint_quantified_choice_proposition:
+  syntax: 'quantified_choice_proposition'
+  target: strong_constraint_ita
+
+negative_constraint_quantified_assignment_proposition:
+  syntax: 'quantified_assignment_proposition'
+  target: strong_constraint_ita
+
+negative_constraint_when_then_clause:
+  syntax: 'when_then_clause'
+  target: strong_constraint_ita
+
+negative_constraint_simple_definition_sequence:
+  syntax: 'simple_definition_sequence'
+  target: strong_constraint_ita
